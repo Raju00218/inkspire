@@ -31,7 +31,7 @@ export default function Login() {
                 credentials: "include"
             })
             const reqRes = await res.json()
-            console.log(reqRes)
+            console.log(reqRes.status)
             if (res.ok) {
                 e.target.reset()
                 setEmailErr('')
