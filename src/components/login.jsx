@@ -41,6 +41,7 @@ export default function Login() {
                     setLoginPop(false)
                  },1000);
                 setUserName(reqRes.username)
+                    console.log(reqRes.username )
             }
             if (reqRes.errors) {
                 setEmailErr(reqRes.errors.email)
