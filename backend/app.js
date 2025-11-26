@@ -26,7 +26,6 @@ app.use(morgan('dev'))
 
 app.use(cors({
     origin: "https://inkspirewrite.vercel.app",
-    "http://localhost:5173" ,
     methods:['GET',"POST","DELETE","PUT"],
     credentials: true
 }));
