@@ -31,7 +31,6 @@ export default function Login() {
                 credentials: "include"
             })
             const reqRes = await res.json()
-            console.log(reqRes.username)
             if (res.ok) {
                 e.target.reset()
                 setEmailErr('')
@@ -41,7 +40,6 @@ export default function Login() {
                     setLoginPop(false)
                  },1000);
                 setUserName(reqRes.username)
-                    console.log(reqRes.status.username )
             }
             if (reqRes.errors) {
                 setEmailErr(reqRes.errors.email)
