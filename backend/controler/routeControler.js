@@ -17,7 +17,6 @@ const article_get = async(req,res)=>{
     try{
         const articles = await Article.find().sort({createdAt:-1})
         res.status(200).json(articles);
-        console.log(articles)
     }catch(err){
         console.log('Error:', err.message)
         res.status(500).json({ error: err.message });
