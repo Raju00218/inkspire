@@ -25,7 +25,7 @@ app.use(express.urlencoded({ extended: true }))
 app.use(morgan('dev'))
 
 app.use(cors({
-    origin: "inkspirewrite.vercel.app",
+    origin: "https://inkspirewrite.vercel.app/",
     methods:['GET',"POST","DELETE","PUT"],
     credentials: true
 }));
