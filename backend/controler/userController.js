@@ -83,7 +83,7 @@ const login_get=(req,res)=>{
         user: res.locals.user || null
     });
 }
-const logout_get = (req, res) => {
+const logout_post = (req, res) => {
     res.cookie('info','',{
         httpOnly: true, 
     secure: true,       
