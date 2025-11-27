@@ -6,7 +6,7 @@ export default function ProtectedRoutes({children}) {
     const { username, setLoginPop } = useContext(Context)
 
     if(!username){
-        
+        console.log(username)
       setLoginPop(true)
       return <Navigate to ='/'/>
 
