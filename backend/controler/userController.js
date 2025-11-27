@@ -64,6 +64,7 @@ const login_post = async (req, res) => {
                                    secure: process.env.NODE_ENV === 'production',
                                    maxAge:maxAge*1000, 
                                    sameSite: "none",
+                                   domain: "inkspire-7yk5.onrender.com",
                                    path: "/"
                                   })
         res.status(201).json({ 
@@ -88,6 +89,7 @@ const logout_post = (req, res) => {
         httpOnly: true, 
  secure: process.env.NODE_ENV === 'production',      
     sameSite: "none",
+        domain: "inkspire-7yk5.onrender.com",
     path: "/",
         maxAge: 0
     })
