@@ -5,6 +5,7 @@ const lodash = require('lodash')
 const articles = require('./apiRoutes/routes')
 const users = require('./apiRoutes/userApi')
 const app =express()
+app.set('trust proxy', 1);
 require('dotenv').config()
 const cors = require("cors");
 const cookieParser = require('cookie-parser')
