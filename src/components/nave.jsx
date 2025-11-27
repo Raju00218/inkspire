@@ -9,7 +9,7 @@ function nave() {
     const logout =async()=>{
         try{
             const res = await fetch(`${API_BASE}/users/logout`,{
-                method:'GET',
+                method:'POST',
                 credentials:'include'
             })
             const data = await res.json()
