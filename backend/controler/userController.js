@@ -84,14 +84,14 @@ const login_get=(req,res)=>{
     });
 }
 const logout_get = (req, res) => {
-    consol.log(req.cookies)
+    console.log(req.cookies
     res.clearCookie('info',{
                             httpOnly: true,
                             sameSite: "none",
                             path: "/" ,
                             secure: true,
                            });
-  consol.log(res.clearCookie())
+  console.log(res.clearCookie())
     res.redirect('/');
 };
 
