@@ -99,5 +99,5 @@ module.exports={
     signUp_post,
     login_post,
     login_get,
-    logout_get
+    logout_post
 }
