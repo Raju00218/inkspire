@@ -17,7 +17,6 @@ function nave() {
             setUserName(''); // Update UI immediately
             console.log("Logout successful");
           }
-
         }catch(err){
             console.log(err)
         }
