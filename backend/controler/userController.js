@@ -90,7 +90,7 @@ const logout_get = (req, res) => {
                             path: "/" ,
                             secure: true,
                            });
-    res.json({message:"logged out"})
+  
     res.redirect('/');
 };
 
