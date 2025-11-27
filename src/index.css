@@ -35,6 +35,9 @@ li a{
 /* .ql-toolbar:first-of-type {
     display: none !important;
 } */
+.ql-toolbar:first-of-type {
+    /* display: none !important; */
+}
 .postArticle {
     width: 80%;
     margin:  auto;
