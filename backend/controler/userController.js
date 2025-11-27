@@ -89,7 +89,8 @@ const logout_get = (req, res) => {
     secure: true,       
     sameSite: "none",
     path: "/",
-        maxAge: 0
+        maxAge: 0,
+        domain:"inkspirewrite.vercel.app"
     })
 res.end()
 
