@@ -84,11 +84,13 @@ const login_get=(req,res)=>{
     });
 }
 const logout_get = (req, res) => {
-    res.cookie('info', '', { maxAge: 1,
+    res.clearCookie('info',{
+                            httpOnly: true,
                             sameSite: "none",
                             path: "/" ,
                             secure: true,
                            });
+    res.json({message:"logged out"})
     res.redirect('/');
 };
 
