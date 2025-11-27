@@ -20,6 +20,7 @@ function nave() {
 
         }catch(err){
             console.log(err)
+         // err shoeqm
         }
     }
     
