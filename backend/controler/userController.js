@@ -60,10 +60,10 @@ const login_post = async (req, res) => {
     try {
         const user = await Users.login(email, password )
         const token = jwtoken(user._id)
-        res.cookie('info', token, { httpOnly: true, secure: true, 
+        res.cookie('info', token, { httpOnly: true, 
+                                   secure: true, 
                                    maxAge:maxAge*1000, 
                                    sameSite: "none",
-                                   domain: "inkspire-7yk5.onrender.com",
                                    path: "/"
                                   })
         res.status(201).json({ 
