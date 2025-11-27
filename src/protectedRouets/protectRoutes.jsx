@@ -1,4 +1,4 @@
-import { Context } from '../provider/ContextProvider'
+import { Context } from './provider/ContextProvider'
 import { useContext } from "react";
 import { Navigate } from 'react-router-dom';
 
