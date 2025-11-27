@@ -13,7 +13,7 @@ function RoutePage(params) {
        <>
             <Routes>
              <Route path="/" element={<App />} />
-             <Route path="/ArticleEditer" 
+             <Route path="/article_editer" 
               element={
               <ProtectedRoutes>
                     <ArticleEditer />
