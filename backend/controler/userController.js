@@ -84,13 +84,14 @@ const login_get=(req,res)=>{
     });
 }
 const logout_get = (req, res) => {
- 
+ console.log("Before clear:", req.cookies.info);
     res.clearCookie('info',{
                             httpOnly: true,
                             sameSite: "none",
                             path: "/" ,
                             secure: true,
                            });
+    console.log("After clear:", req.cookies.info);
   
     res.redirect('/');
 };
