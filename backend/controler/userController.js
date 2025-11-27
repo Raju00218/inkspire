@@ -89,7 +89,7 @@ const logout_get = (req, res) => {
         httpOnly: true, 
     secure: true,       
     sameSite: "none",
-    path: "/"
+    path: "/",
         maxAge: 0
     })
     console.log("After clear:", req.cookies.info);
