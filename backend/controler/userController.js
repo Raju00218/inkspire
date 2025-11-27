@@ -87,8 +87,8 @@ const logout_get = (req, res) => {
  console.log("Before clear:", req.cookies.info);
     res.clearCookie('info')
     console.log("After clear:", req.cookies.info);
-  
-    res.redirect('/');
+res.end()
+
 };
 
 module.exports={
