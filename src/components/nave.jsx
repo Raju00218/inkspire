@@ -4,7 +4,7 @@ import { useContext } from "react";
 const API_BASE = import.meta.env.VITE_API_URL
 function nave() {
  const {  setuplogin }  = useContext(Context)
-    const {username} = useContext(Context)
+    const { username, setUserName } = useContext(Context)
     
     const logout =async()=>{
         try{
@@ -13,6 +13,8 @@ function nave() {
                 credentials:'include'
             })
             const data = await res.json()
+            setUserName(null)
+
         }catch(err){
             console.log(err)
         }
