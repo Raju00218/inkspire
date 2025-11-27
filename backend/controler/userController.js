@@ -61,7 +61,7 @@ const login_post = async (req, res) => {
         const user = await Users.login(email, password )
         const token = jwtoken(user._id)
         res.cookie('info', token, { httpOnly: true, 
-                                   secure: true, 
+                                   secure: process.env.NODE_ENV === 'production',
                                    maxAge:maxAge*1000, 
                                    sameSite: "none",
                                    path: "/"
@@ -86,7 +86,7 @@ const login_get=(req,res)=>{
 const logout_post = (req, res) => {
     res.cookie('info','',{
         httpOnly: true, 
-    secure: true,       
+ secure: process.env.NODE_ENV === 'production',      
     sameSite: "none",
     path: "/",
         maxAge: 0
