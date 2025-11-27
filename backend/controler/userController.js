@@ -84,7 +84,7 @@ const login_get=(req,res)=>{
     });
 }
 const logout_post = (req, res) => {
-    res.cookie('info','',{
+    res.clearCookie('info',{
         httpOnly: true, 
  secure: process.env.NODE_ENV === 'production',      
     sameSite: "none",
