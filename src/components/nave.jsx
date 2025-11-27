@@ -23,7 +23,7 @@ function nave() {
         <nav>
                 <h2><a href="/">Inkspire</a></h2>
             <ul className="nav-ul">
-                    <li><Link to='/ArticleEditer'>Post article</Link></li>
+                    <li><Link to='/article_editor'>Post article</Link></li>
                     <li><a href="#">Contact</a></li>
                     <li><a href="#">About Us </a></li>
                     <li>{username? <a href="#">{username}</a>:<a href="#" onClick={setuplogin} >Login</a>}</li>  
