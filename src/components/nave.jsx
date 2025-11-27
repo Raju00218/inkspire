@@ -13,7 +13,7 @@ function nave() {
                 credentials:'include'
             })
             const data = await res.json()
-            setUserName(null)
+          setUserName('')
 
         }catch(err){
             console.log(err)
