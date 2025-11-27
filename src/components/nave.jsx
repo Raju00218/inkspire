@@ -13,6 +13,7 @@ function nave() {
                 credentials:'include'
             })
             const data = await res.json()
+         console.log(data)
             if (res.ok) {
                 setUserName(''); 
                 console.log("Logout successful");
