@@ -63,7 +63,7 @@ const login_post = async (req, res) => {
         res.cookie('info', token, { httpOnly: true, secure: true, 
                                    maxAge:maxAge*1000, 
                                    sameSite: "none",
-                                   domain: "https://inkspire-7yk5.onrender.com",
+                                   domain: "inkspire-7yk5.onrender.com",
                                    path: "/"
                                   })
         res.status(201).json({ 
