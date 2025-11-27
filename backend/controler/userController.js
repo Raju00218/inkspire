@@ -84,7 +84,9 @@ const login_get=(req,res)=>{
     });
 }
 const logout_get = (req, res) => {
-    res.cookie('info', '', { maxAge: 1 });
+    res.cookie('info', '', { maxAge: 1
+                            sameSite: "none",  path: "/" ,secure: true,
+                           });
     res.redirect('/');
 };
 
