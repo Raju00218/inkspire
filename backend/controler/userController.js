@@ -62,6 +62,7 @@ const login_post = async (req, res) => {
         const token = jwtoken(user._id)
         res.cookie('info', token, { httpOnly: true, secure: true, 
                                    maxAge:maxAge*1000, 
+                                   sameSite: "none"
                                   })
         res.status(201).json({ 
             status:'success',
