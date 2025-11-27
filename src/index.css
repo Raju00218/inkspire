@@ -32,9 +32,9 @@ li a{
     text-decoration: none;
     font-size: 1.1rem;
 }
-.ql-toolbar:first-of-type {
+/* .ql-toolbar:first-of-type {
     display: none !important;
-}
+} */
 .postArticle {
     width: 80%;
     margin:  auto;
