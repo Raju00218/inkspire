@@ -84,7 +84,7 @@ const login_get=(req,res)=>{
     });
 }
 const logout_get = (req, res) => {
-    console.log(req.cookies
+    console.log(req.cookies)
     res.clearCookie('info',{
                             httpOnly: true,
                             sameSite: "none",
