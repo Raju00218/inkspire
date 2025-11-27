@@ -85,7 +85,7 @@ const login_get=(req,res)=>{
 }
 const logout_get = (req, res) => {
  console.log("Before clear:", req.cookies.info);
-    res.cookie('info',''{
+    res.cookie('info','',{
         httpOnly: true, 
     secure: true,       
     sameSite: "none",
