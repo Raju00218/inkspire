@@ -84,7 +84,6 @@ const login_get=(req,res)=>{
     });
 }
 const logout_get = (req, res) => {
- console.log("Before clear:", req.cookies.info);
     res.cookie('info','',{
         httpOnly: true, 
     secure: true,       
@@ -92,7 +91,6 @@ const logout_get = (req, res) => {
     path: "/",
         maxAge: 0
     })
-    console.log("After clear:", req.cookies.info);
 res.end()
 
 };
