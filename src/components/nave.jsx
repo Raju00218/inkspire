@@ -12,8 +12,9 @@ function nave() {
                 method:'GET',
                 credentials:'include'
             })
-            const data = await res.json()
-          setUserName('')
+          if (res.ok) {
+            setUserName(''); // Update UI immediately
+            console.log("Logout successful");
 
         }catch(err){
             console.log(err)
