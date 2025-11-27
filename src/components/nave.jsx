@@ -1,14 +1,14 @@
 import { Routes, Route, Link } from "react-router-dom"
 import { Context } from '../provider/ContextProvider'
 import { useContext } from "react";
-
+const API_BASE = import.meta.env.VITE_API_URL
 function nave() {
  const {  setuplogin }  = useContext(Context)
     const {username} = useContext(Context)
     
     const logout =async()=>{
         try{
-            const res = await fetch('http://localhost:3000/users/logout',{
+            const res = await fetch(`${API_BASE}/users/logout`,{
                 method:'GET',
                 credentials:'include'
             })
