@@ -15,7 +15,6 @@ function ShowArticle(params) {
 useEffect(()=>{
     const fetchData =async()=>{
     setLoading(true)
-    console.log(id)
     try{
         const res = await fetch(`${API_BASE}/articles/${id}`)
         

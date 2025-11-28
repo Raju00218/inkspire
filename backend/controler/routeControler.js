@@ -26,7 +26,6 @@ const article_get = async(req,res)=>{
 
 const articleDetails_get=(req,res)=>{
     const id = req.params.id 
-    console.log(id)
     Article.findById(id).populate('userId','username')
         .then((result) => {
             if (!result) {
