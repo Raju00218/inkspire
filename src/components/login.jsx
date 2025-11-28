@@ -10,7 +10,7 @@ export default function Login() {
         const [passwordErr, setPasswordErr] = useState()
     const { signUp, showSignup }  = useContext(Context)
     const { setLoginPop, setuplogin } = useContext(Context)
-    const { setUserName } = useContext(Context)
+    const { setUser } = useContext(Context)
     const { popupLoading, setPopupLoading } = useContext(Context)
 
     const [loading, setLoading] = useState(false)
@@ -40,7 +40,7 @@ export default function Login() {
                     setLoading(false);
                     setLoginPop(false)
                  },1000);
-                setUserName(reqRes.username)
+                setUser(reqRes.username)
             }
             if (reqRes.errors) {
                 setEmailErr(reqRes.errors.email)

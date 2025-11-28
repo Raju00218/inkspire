@@ -17,7 +17,8 @@ export default function ContextProvider({children}){
         setPopupLoading(true)
         setLoginPop(prev => !prev)
   }
-  const [username, setUserName] = useState('')
+  const [user, setUser] = useState(null);
+  const username = user?.username
   const [userId, setUserId]=useState('')
 
   useEffect(() => {
@@ -42,7 +43,7 @@ export default function ContextProvider({children}){
     return(
       <Context.Provider value={{
         signUp, showSignup, setuplogin, 
-        loginPop, setLoginPop, username, setUserName,userId,
+        loginPop, setLoginPop, username, setUser,userId,
         popupLoading, setPopupLoading
       }}>
         {children}
