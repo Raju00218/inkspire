@@ -10,7 +10,7 @@ export default function Login() {
         const [passwordErr, setPasswordErr] = useState()
     const { signUp, showSignup }  = useContext(Context)
     const { setLoginPop, setuplogin } = useContext(Context)
-    const { setUserName } = useContext(Context)
+    const { setUserName} = useContext(Context)
     const { popupLoading, setPopupLoading } = useContext(Context)
 
     const [loading, setLoading] = useState(false)
