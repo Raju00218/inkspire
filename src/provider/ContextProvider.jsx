@@ -44,7 +44,7 @@ export default function ContextProvider({children}){
   }, [username]);
     return(
       <Context.Provider value={{
-        signUp, showSignup, setuplogin, 
+        signUp, showSignup, setuplogin, setSignUp,
         loginPop, setLoginPop, username, setUserName,userId,
         popupLoading, setPopupLoading, setLogoutLoading, logoutLoading
       }}>

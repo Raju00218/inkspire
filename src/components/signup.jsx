@@ -7,7 +7,7 @@ export default function Signup() {
     const[nameErr, setNameErr]=useState()
     const [emailErr, setEmailErr] = useState()
     const [passwordErr, setPasswordErr] = useState()
-    const {  showSignup }  = useContext(Context)
+    const { showSignup, setSignUp }  = useContext(Context)
     const {  setuplogin } = useContext(Context)
     const [loading, setLoading] = useState(false)
     const createUser=async(e)=>{
