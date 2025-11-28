@@ -9,6 +9,7 @@ import ProtectedRoutes from './protectedRouets/protectRoutes'
 
 function RoutePage(params) {
      const { loginPop }  = useContext(Context)
+     const { logoutLoading, } = useContext(Context)
     return(
        <>
             <Routes>
@@ -23,6 +24,7 @@ function RoutePage(params) {
              <Route path="/articles/:id" element={<ShowArticle />} />
             </Routes>
             {loginPop && <Login />}
+             {logoutLoading && <Loader />}
        </>
     )
 }

@@ -11,7 +11,6 @@ const API_BASE = import.meta.env.VITE_API_URL
 function App() {
 const [article, setArticle]=useState([])
   const [loading, setLoading] = useState(true)
-  const { logoutLoading,  } = useContext(Context)
 
 useEffect(()=>{
   const fetchArticle = async()=>{
@@ -34,7 +33,6 @@ useEffect(()=>{
     <>
     <Nave    />
      <div className='main-page'>
-        {logoutLoading && <Loader />}
         {loading ? <Loader /> : <div className='article-container'>
           <h1>articles</h1>
           <div>
