@@ -17,7 +17,7 @@ export default function ContextProvider({children}){
         setPopupLoading(true)
         setLoginPop(prev => !prev)
   }
-  const [username, setUserName] = useState(null);
+  const [username, setUserName] = useState('');
   const [userId, setUserId]=useState('')
 
   useEffect(() => {
