@@ -30,7 +30,7 @@ export default function ContextProvider({children}){
         if (res.ok) {
           const data = await res.json();
           // console.log(data)
-          setUser(data.user.username); // restore user state
+          setUserName(data.user.username); // restore user state
           setUserId(data.user._id)
         }
       } catch (err) {
