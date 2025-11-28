@@ -20,7 +20,7 @@ function RoutePage(params) {
               </ProtectedRoutes>
              }/>
               
-             <Route path="/article/:id" element={<ShowArticle />} />
+             <Route path="/articles/:id" element={<ShowArticle />} />
             </Routes>
             {loginPop && <Login />}
        </>

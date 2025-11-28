@@ -16,7 +16,7 @@ useEffect(()=>{
     const fetchData =async()=>{
     setLoading(true)
     try{
-        const res = await fetch(`${API_BASE}/article/${id}`)
+        const res = await fetch(`${API_BASE}/articles/${id}`)
         
         const result = await res.json()
         setAthor(result.userId.username)
