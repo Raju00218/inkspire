@@ -39,7 +39,7 @@ export default function Login() {
                     setLoading(false);
                     setLoginPop(false)
                     setUserName(reqRes.username)
-                 },1000);
+                 },700);
                 
             }
             if (reqRes.errors) {
@@ -50,7 +50,7 @@ export default function Login() {
             console.log(error)
         }
     }
-    setTimeout(() => setPopupLoading(false),500)
+    setTimeout(() => setPopupLoading(false),700)
     return (
         <> 
             {!signUp &&
