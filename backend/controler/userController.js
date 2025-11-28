@@ -93,7 +93,7 @@ const logout_post = (req, res) => {
     path: "/",
         maxAge: 0
     })
-res.status(200).send({"Logged out"});
+res.status(200).send({status:"Logged out"});
 
 };
 
