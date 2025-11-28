@@ -41,7 +41,7 @@ useEffect(()=>{
             <ul className='article-ul'>
               {article.map(article => (
                 <li key={article._id} className="article-item">
-                  <Link to={`/article/${article._id}`} className="article-link">
+                  <Link to={`/articles/${article._id}`} className="article-link">
                     <h3>{article.title}</h3>
                     <p>{article.snippet}</p>
                   </Link>
