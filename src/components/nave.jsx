@@ -35,7 +35,7 @@ function nave() {
                     <li><a href="#">Contact</a></li>
                     <li><a href="#">About Us </a></li>
                     <li>{username? <a href="#">{username}</a>:<a href="#" onClick={setuplogin} >Login</a>}</li>  
-                    <li>{username ? <a href="" onClick={logout}>logout </a>:''}</li>           
+                    <li>{username ? <a href="#" onClick={logout}>logout </a>:''}</li>           
             </ul>
         </nav>
         </>
