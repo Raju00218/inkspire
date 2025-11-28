@@ -6,7 +6,7 @@ import Login from './components/login'
 import { useContext } from 'react'
 import { Context } from './provider/ContextProvider'
 import ProtectedRoutes from './protectedRouets/protectRoutes'
-
+import Loader from './components/loder'
 function RoutePage(params) {
      const { loginPop }  = useContext(Context)
      const { logoutLoading, } = useContext(Context)

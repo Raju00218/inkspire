@@ -4,8 +4,6 @@ import Nave from './components/nave'
 import Footer  from './components/footer'
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { Context } from './provider/ContextProvider'
-import { useContext } from "react";
 import Loader from './components/loder'
 const API_BASE = import.meta.env.VITE_API_URL
 function App() {
