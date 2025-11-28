@@ -5,6 +5,7 @@ const API_BASE = import.meta.env.VITE_API_URL
 export default function ContextProvider({children}){
 
   
+ const [logoutLoading, setLogoutLoading] = useState(false);
 
 
     const[signUp, setSignUp]=useState(false)
@@ -45,7 +46,7 @@ export default function ContextProvider({children}){
       <Context.Provider value={{
         signUp, showSignup, setuplogin, 
         loginPop, setLoginPop, username, setUserName,userId,
-        popupLoading, setPopupLoading
+        popupLoading, setPopupLoading, setLogoutLoading, logoutLoading
       }}>
         {children}
       </Context.Provider>

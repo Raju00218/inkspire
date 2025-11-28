@@ -99,3 +99,7 @@ z-index: 999;
     }
 }
 
+.empty-detailArticle-div{
+    min-height: 40rem;
+
+}

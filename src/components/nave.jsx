@@ -5,8 +5,9 @@ const API_BASE = import.meta.env.VITE_API_URL
 function nave() {
  const {  setuplogin }  = useContext(Context)
     const {username,setUserName}= useContext(Context)
-    
+    const { setLogoutLoading } = useContext(Context)
     const logout =async()=>{
+        setLogoutLoading(true)
         try{
             const res = await fetch(`${API_BASE}/users/logout`,{
                 method:'POST',
@@ -14,7 +15,10 @@ function nave() {
             })
             const data = await res.json()
             if (res.ok) {
-                setUserName(''); 
+             setTimeout(()=>{
+                 setUserName('');
+                 setLogoutLoading(false) 
+             },500)   
             }
 
         }catch(err){

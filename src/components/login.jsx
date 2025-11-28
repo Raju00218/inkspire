@@ -38,8 +38,9 @@ export default function Login() {
                 setTimeout(() =>{ 
                     setLoading(false);
                     setLoginPop(false)
+                    setUserName(reqRes.username)
                  },1000);
-                setUserName(reqRes.username)
+                
             }
             if (reqRes.errors) {
                 setEmailErr(reqRes.errors.email)

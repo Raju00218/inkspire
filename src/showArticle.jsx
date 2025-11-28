@@ -12,8 +12,8 @@ function ShowArticle(params) {
     const [detailArticle, setDetailArticle]=useState([])
     const [athor,setAthor]=useState('')
        const [loading, setLoading] = useState(false)
-   useEffect(()=>{
-const fetchData =async()=>{
+useEffect(()=>{
+    const fetchData =async()=>{
     setLoading(true)
     try{
         const res = await fetch(`${API_BASE}/articles/${id}`)
@@ -27,8 +27,9 @@ const fetchData =async()=>{
     } catch (err) {
         console.log(err)
     }
-}
-fetchData()
+  }
+  
+ fetchData()
 },[])
 
 useEffect(()=>{
@@ -38,11 +39,9 @@ useEffect(()=>{
             readOnly: true,
             modules: { toolbar: false }
         })
-        quill.setContents(detailArticle.body)
-
-
-    }
+        quill.setContents(detailArticle.body)}
 },[detailArticle])
+
     const date = detailArticle.createdAt ? new Date(detailArticle.createdAt):null
     const formattedDate = date?.toLocaleDateString('en-US',{
         month: 'long',
@@ -53,7 +52,7 @@ useEffect(()=>{
         <>
             <Nave />
             {loading && <Loader />}
-            <div className="container">
+            {detailArticle?.body ?<div className="container">
                 <div className='article-card'>
                     <div className="article-content" >
                         <div>
@@ -69,12 +68,12 @@ useEffect(()=>{
                         </div>
                     </div>
                 </div>
-                <div className="back-link-wrapper">
+                {detailArticle?.body ?<div className="back-link-wrapper">
                     <a href="/" className="back-link">
                         &larr; Back to all articles
                     </a>
-                </div>
-            </div>
+                </div>: ''}
+            </div>:<div className='empty-detailArticle-div'></div>}
             <Footer />
         </>
     )

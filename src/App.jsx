@@ -4,12 +4,14 @@ import Nave from './components/nave'
 import Footer  from './components/footer'
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
-
+import { Context } from './provider/ContextProvider'
+import { useContext } from "react";
 import Loader from './components/loder'
 const API_BASE = import.meta.env.VITE_API_URL
 function App() {
 const [article, setArticle]=useState([])
   const [loading, setLoading] = useState(true)
+  const { logoutLoading,  } = useContext(Context)
 
 useEffect(()=>{
   const fetchArticle = async()=>{
@@ -32,6 +34,7 @@ useEffect(()=>{
     <>
     <Nave    />
      <div className='main-page'>
+        {logoutLoading && <Loader />}
         {loading ? <Loader /> : <div className='article-container'>
           <h1>articles</h1>
           <div>
