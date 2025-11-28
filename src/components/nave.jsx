@@ -4,7 +4,8 @@ import { useContext } from "react";
 const API_BASE = import.meta.env.VITE_API_URL
 function nave() {
  const {  setuplogin }  = useContext(Context)
-    const username = useContext(Context)
+    const user= useContext(Context)
+ const username = user?.username
     
     const logout =async()=>{
         try{
