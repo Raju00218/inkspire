@@ -29,9 +29,11 @@ export default function ContextProvider({children}){
         });
         if (res.ok) {
           const data = await res.json();
-          // console.log(data)
-          setUserName(data.user.username); // restore user state
-          setUserId(data.user._id)
+
+          if (data && data.user && data.user.username) {
+            setUserName(data.user.username);
+            setUserId(data.user._id)
+          }
         }
       } catch (err) {
         console.error("Not logged in", err);
