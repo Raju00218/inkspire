@@ -61,7 +61,7 @@ const login_post = async (req, res) => {
         const user = await Users.login(email, password )
         const token = jwtoken(user._id)
         res.cookie('info', token, { httpOnly: true, 
-                                   secure: process.env.NODE_ENV === 'production',
+                                   secure:true,
                                    maxAge:maxAge*1000, 
                                    sameSite: "none",
                                    domain: ".inkspire-7yk5.onrender.com",
@@ -87,7 +87,7 @@ const login_get=(req,res)=>{
 const logout_post = (req, res) => {
     res.clearCookie('info',{
         httpOnly: true, 
- secure: process.env.NODE_ENV === 'production',      
+ secure: true,     
     sameSite: "none",
         domain: ".inkspire-7yk5.onrender.com",
     path: "/",
