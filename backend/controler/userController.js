@@ -150,5 +150,5 @@ module.exports={
     login_post,
     login_get,
     logout_post,
-    verify_get
+
 }
