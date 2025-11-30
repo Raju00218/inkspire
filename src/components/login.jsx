@@ -82,7 +82,7 @@ export default function Login() {
                                 placeholder="••••••••"
                             />
                             <div className="password-err">{passwordErr}</div>
-
+                            <div className="forgot-div"><a href="#" className="forgot-link">Forgot Password</a></div>
                             <button type="submit">Log in</button>
                             <p>Don't have an account?<a href="#" onClick={showSignup}>Signup</a></p>
                            

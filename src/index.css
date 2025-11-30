@@ -696,7 +696,14 @@ li a{
     /* Reserve space to prevent jumping */
     margin-top: 4px;
 }
-
+.forgot-div{
+    text-align: right;
+   
+}
+.forgot-link{
+    font-weight: 400;
+    color: red;
+}
 /* Button */
 .login-form button {
     margin-top: 1.5rem;
