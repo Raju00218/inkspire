@@ -1,5 +1,7 @@
+const { transform } = require('lodash');
 const {Users} = require('../models/articles')
 const jwt = require('jsonwebtoken')
+const nodemailer = require('nodemailer')
 
 const handleError = (err) => {
     let errors = {username:"", email: "", password: "" };
@@ -37,11 +39,36 @@ const handleError = (err) => {
 
 
 const signUp_post = async (req,res)=>{
-
+// const maxAge = 1*60*60
   const {username,email,password} = req.body
    try{
-       const user = await Users.create({ username, email, password })
-       res.status(201).json({user})
+       const user = await Users.create({ username, email, password, isVerified : false })
+    //    const verifyToken = jwt.sign({ userId: user._id }, process.env.JWT_SECRET,{expiresIn:maxAge})
+    //    const url = `https://localhost:3000/verify?token=${verifyToken}`;
+
+
+    //    const transpoter = nodemailer.createTransport({
+    //        service: "gmail",
+    //        auth: {
+    //            user: process.env.EMAIL_USER,
+    //            pass: process.env.EMAIL_PASS,
+    //        }
+    //    })
+    //    const mailOptions ={
+    //     from: process.env.EMAIL_USER,
+    //     to:user.email,
+    //     subject:"Verify your email",
+    //     html:`click <a href="${url}">here</a> to verify your emain`
+    //    }
+    
+    //    transpoter.sendMail(mailOptions,(err,info)=>{
+    //     if(err){
+    //         console.log("err verify send mail:",err)
+    //     }else{
+    //         console.log("Email sent:",info.response)
+    //     }
+    //    })
+       res.status(201).json({message :"verification email sent"})
    }catch(err){
     console.log(err)
     const errors = handleError(err)
@@ -50,6 +77,26 @@ const signUp_post = async (req,res)=>{
    }
 
 }
+// const verify_get = (req, res, next)=>{
+//     try{
+//         const {verifyToken} = req.query;
+//         if(verifyToken){
+//             jwt.verify(verifyToken, process.env.JWT_SECRET,async(err, decoded)=>{
+//                 if(err){
+//                     console.log(err)
+//                     next()
+//                 }else{
+//                     await Users.findByIdAndUpdate(decoded.userId,{isVerified:true})
+//                     res.json({message:"Email verified successfully"})
+//                 }
+
+//             })
+//         }
+//     }catch(err){
+//         console.log(err)
+//         res.status(400).json({ error: "Invalid or expired token" });
+//     }
+// }
 const maxAge= 1*60*60*24
 const jwtoken =(id)=>{
     return jwt.sign({ id }, process.env.JWT_SECRET,{expiresIn:maxAge})
@@ -64,8 +111,8 @@ const login_post = async (req, res) => {
                                    secure:true,
                                    maxAge:maxAge*1000, 
                                    sameSite: "none",
-                                   domain: ".inkspire-7yk5.onrender.com",
-                                   path: "/"
+                                //    domain: ".inkspire-7yk5.onrender.com",
+                                //    path: "/"
                                   })
         res.status(201).json({ 
             status:'success',
@@ -86,11 +133,11 @@ const login_get=(req,res)=>{
 }
 const logout_post = (req, res) => {
     res.clearCookie('info',{
-        httpOnly: true, 
- secure: true,     
-    sameSite: "none",
-        domain: ".inkspire-7yk5.onrender.com",
-    path: "/",
+//         httpOnly: true, 
+//  secure: true,     
+//     sameSite: "none",
+//         domain: ".inkspire-7yk5.onrender.com",
+//     path: "/",
         maxAge: 0
     })
 res.status(200).send({status:"Logged out"});
@@ -101,5 +148,6 @@ module.exports={
     signUp_post,
     login_post,
     login_get,
-    logout_post
+    logout_post,
+    verify_get
 }
