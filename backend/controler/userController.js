@@ -42,7 +42,7 @@ const signUp_post = async (req,res)=>{
 // const maxAge = 1*60*60
   const {username,email,password} = req.body
    try{
-       const user = await Users.create({ username, email, password, isVerified : false })
+       const user = await Users.create({ username, email, password })
     //    const verifyToken = jwt.sign({ userId: user._id }, process.env.JWT_SECRET,{expiresIn:maxAge})
     //    const url = `https://localhost:3000/verify?token=${verifyToken}`;
 
@@ -68,7 +68,8 @@ const signUp_post = async (req,res)=>{
     //         console.log("Email sent:",info.response)
     //     }
     //    })
-       res.status(201).json({message :"verification email sent"})
+    //    res.status(201).json({message :"verification email sent"})
+       res.status(201).json({user})
    }catch(err){
     console.log(err)
     const errors = handleError(err)
