@@ -111,8 +111,8 @@ const login_post = async (req, res) => {
                                    secure:true,
                                    maxAge:maxAge*1000, 
                                    sameSite: "none",
-                                //    domain: ".inkspire-7yk5.onrender.com",
-                                //    path: "/"
+                                   domain: ".inkspire-7yk5.onrender.com",
+                                   path: "/"
                                   })
         res.status(201).json({ 
             status:'success',
@@ -133,11 +133,11 @@ const login_get=(req,res)=>{
 }
 const logout_post = (req, res) => {
     res.clearCookie('info',{
-//         httpOnly: true, 
-//  secure: true,     
-//     sameSite: "none",
-//         domain: ".inkspire-7yk5.onrender.com",
-//     path: "/",
+        httpOnly: true, 
+ secure: true,     
+    sameSite: "none",
+        domain: ".inkspire-7yk5.onrender.com",
+    path: "/",
         maxAge: 0
     })
 res.status(200).send({status:"Logged out"});
