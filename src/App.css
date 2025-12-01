@@ -174,3 +174,61 @@ z-index: 999;
         justify-content: center;
         align-items: center;
 }
+
+.ql-font-Inter {
+    font-family: 'Inter';
+}
+.ql-font-Ubuntu {
+    font-family: 'Ubuntu';
+}
+.ql-font-Poppins {
+  font-family: 'Poppins';
+}
+.ql-font-Nunito {
+    font-family: 'Nunito';
+}
+.ql-font-alegreyasc {
+    font-family: 'Alegreya SC';
+}
+.ql-font-Natasans {
+    font-family: 'Nata Sans';
+}
+
+.ql-snow .ql-picker.ql-font .ql-picker-label[data-value="Inter"]::before,
+.ql-snow .ql-picker.ql-font .ql-picker-item[data-value="Inter"]::before {
+    content: 'Inter';
+    font-family: 'Inter';
+    /* Optional: renders the name IN the font */
+}
+.ql-snow .ql-picker.ql-font .ql-picker-label[data-value="Ubuntu"]::before,
+.ql-snow .ql-picker.ql-font .ql-picker-item[data-value="Ubuntu"]::before {
+    content: 'Ubuntu';
+    font-family: 'Ubuntu';
+    /* Optional: renders the name IN the font */
+}
+
+
+.ql-snow .ql-picker.ql-font .ql-picker-label[data-value="Poppins"]::before,
+.ql-snow .ql-picker.ql-font .ql-picker-item[data-value="Poppins"]::before {
+    content: 'Poppins';
+    font-family: 'Poppins';
+    /* Optional: renders the name IN the font */
+}
+.ql-snow .ql-picker.ql-font .ql-picker-label[data-value="Nunito"]::before,
+.ql-snow .ql-picker.ql-font .ql-picker-item[data-value="Nunito"]::before {
+    content: 'Nunito';
+    font-family: 'Nunito';
+    /* Optional: renders the name IN the font */
+}
+.ql-snow .ql-picker.ql-font .ql-picker-label[data-value="Natasans"]::before,
+.ql-snow .ql-picker.ql-font .ql-picker-item[data-value="Natasans"]::before {
+    content: 'Alegreya SC';
+    font-family: 'Alegreya SC', ;
+    /* Optional: renders the name IN the font */
+}
+.ql-snow .ql-picker.ql-font .ql-picker-label[data-value="Alegreyasc"]::before,
+.ql-snow .ql-picker.ql-font .ql-picker-item[data-value="Alegreyasc"]::before {
+    content: 'Nata Sans';
+    font-family: 'Nata Sans', ;
+    /* Optional: renders the name IN the font */
+}

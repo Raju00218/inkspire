@@ -13,7 +13,7 @@ import Loader from './components/loder'
 
 const API_BASE = import.meta.env.VITE_API_URL
 const Font = Quill.import("formats/font");
-Font.whitelist = ["Inter", "Ubuntu", "Poppins"];
+Font.whitelist = ["Inter", "Ubuntu", "Poppins", 'Nunito', 'Alegreyasc','Natasans', 'sans-serif', 'monospace'];
 Quill.register(Font, true);
 
 function ArticleEditer() {
@@ -37,7 +37,7 @@ const {userId} = useContext(Context)
     [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
 
     [{ 'color': [] }, { 'background': [] }],     
-    [{ 'font': ["Inter", "Ubuntu", "Poppins"]}],
+    [{ 'font': Font.whitelist }],
     [{ 'align': [] }],
 
     ['clean']                                         // remove formatting button
@@ -90,9 +90,7 @@ const {userId} = useContext(Context)
       e.target.reset()
       editer.setContents([])
     }
-   
-    // const ar = editer.root.innerHTML;
-    // console.log('Clicked',ar)
+
   }
 
   return (

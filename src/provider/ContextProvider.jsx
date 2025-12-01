@@ -41,10 +41,9 @@ export default function ContextProvider({children}){
         });
         if (res.ok) {
           const data = await res.json();
-
           if (data && data.user && data.user.username) {
             setUserName(data.user.username);
-            setUserId(data.user._id)
+            setUserId(data.user.id)
           }
         }
       } catch (err) {
