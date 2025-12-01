@@ -10,6 +10,7 @@ import Loader from './components/loder'
 function RoutePage(params) {
      const { loginPop }  = useContext(Context)
      const { logoutLoading, } = useContext(Context)
+     const {openMenu, isMenuOpen} =useContext(Context)
     return(
        <>
             <Routes>
@@ -25,6 +26,7 @@ function RoutePage(params) {
             </Routes>
             {loginPop && <Login />}
              {logoutLoading && <Loader />}
+                <div className={`${openMenu ? 'cover' : ''}`} onClick={isMenuOpen}></div>
        </>
     )
 }
