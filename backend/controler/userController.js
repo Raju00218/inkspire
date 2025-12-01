@@ -129,7 +129,12 @@ const login_post = async (req, res) => {
 const login_get=(req,res)=>{
     res.json({
         authenticated: !!res.locals.user,
-        user: res.locals.user || null
+        user: res.locals.user ?
+         { 
+            id: res.locals.user._id,
+            username:res.locals.user.username,
+            post:res.locals.user.post
+        }:null
     });
 }
 const logout_post = (req, res) => {
