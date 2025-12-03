@@ -38,7 +38,6 @@ useEffect(()=>{
   }
   fetchArticle();
 },[])
-console.log(article)
   return (
     <>
     <Nave    />
