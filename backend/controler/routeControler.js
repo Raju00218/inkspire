@@ -14,9 +14,17 @@ const article_post = async(req,res)=>{
 }
 
 const article_get = async(req,res)=>{
-    try{
-        const articles = await Article.find().sort({createdAt:-1})
-        res.status(200).json(articles);
+    const page=parseInt(req.query.page)||1;
+    const limit =parseInt(req.query.limit)||4;
+    const skip = (page - 1)*limit ;
+    try {
+        const totalDocs = await Article.countDocuments();
+        const totalPage = Math.ceil(totalDocs/limit)
+        const articles = await Article.find().sort({createdAt:-1}).skip(skip).limit(limit)
+        res.status(200).json({
+            articles,
+            totalPage,
+        });
     }catch(err){
         console.log('Error:', err.message)
         res.status(500).json({ error: err.message });

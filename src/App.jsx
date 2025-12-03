@@ -3,23 +3,33 @@ import './App.css'
 import Nave from './components/nave'
 import Footer  from './components/footer'
 import { useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link,useSearchParams } from 'react-router-dom'
 import Loader from './components/loder'
+import { useContext } from 'react'
+import { Context } from './provider/ContextProvider'
+import PageNav from './components/pagination'
 const API_BASE = import.meta.env.VITE_API_URL
-function App() {
-const [article, setArticle]=useState([])
-  const [loading, setLoading] = useState(true)
-    
 
+function App() {
+  const { setCurrPage, setPageNumber } = useContext(Context)
+  // getting search query from url
+  const [ searchParams ] = useSearchParams()
+  const currPage = parseInt(searchParams.get("page"))
+  
+const [article, setArticle]=useState([])
+  const [loading, setLoading] = useState(true) // pre load when article fetching
 useEffect(()=>{
   const fetchArticle = async()=>{
     try{
-      const res = await fetch(`${API_BASE}/articles`)
+      const res = await fetch(`${API_BASE}/articles?page=${currPage}`)
       if(!res.ok){
         throw new Error('Failed fetch article')
       }
       const data = await res.json()
-      setArticle(data)
+      // console.log(data)
+      setArticle(data.articles)
+      setPageNumber(data.totalPage)
+      setCurrPage(currPage)
     }catch(err){
       console.log(err)
     }finally{
@@ -28,6 +38,7 @@ useEffect(()=>{
   }
   fetchArticle();
 },[])
+console.log(article)
   return (
     <>
     <Nave    />
@@ -56,6 +67,7 @@ useEffect(()=>{
           </div>
         </div>}
      </div>
+      {article.length > 0 && <PageNav />}
       <Footer />
     </>
   )

@@ -1,9 +1,16 @@
 import { createContext, useState } from "react";
+import { use } from "react";
 export const Context = createContext(null)
 import { useEffect } from "react";
 import { useMediaQuery } from "react-responsive";
+
 const API_BASE = import.meta.env.VITE_API_URL
+
 export default function ContextProvider({children}){
+  const [currPage, setCurrPage] = useState() // curr page number for next and back
+  const [pageNumber, setPageNumber] = useState() //setting navigation pages numbers
+
+  // Returns true if viewport width is <= 480px (mobile screens) dynamic css
   const isMobile =useMediaQuery({minWidth:481})
   const [openMenu, setOpenMenu] = useState(false)
   function isMenuOpen() {
@@ -15,23 +22,29 @@ export default function ContextProvider({children}){
     }
 
   },[isMobile])
+
  const [logoutLoading, setLogoutLoading] = useState(false);
 
-
+// signup page mounting
     const[signUp, setSignUp]=useState(false)
     const showSignup=()=>{
         setSignUp( prev => !prev)
     }
+    // login page loading 
         const [popupLoading, setPopupLoading] = useState(true);
-    const[loginPop, setLoginPop] =useState(false)
+        // login page popup tracking
+         const[loginPop, setLoginPop] =useState(false)
       const setuplogin = () => {
         setPopupLoading(true)
         setLoginPop(prev => !prev)
         setOpenMenu(false)
   }
+  // dynamic user name showing 
   const [username, setUserName] = useState('');
+  //  sending user id for post article creation along with article
   const [userId, setUserId]=useState('')
-
+ 
+  // checking  user user loged or not 
   useEffect(() => {
     async function fetchUser() {
       try {
@@ -57,7 +70,8 @@ export default function ContextProvider({children}){
         signUp, showSignup, setuplogin, setSignUp,
         loginPop, setLoginPop, username, setUserName,userId,
         popupLoading, setPopupLoading, setLogoutLoading, logoutLoading,
-        setOpenMenu, openMenu, isMenuOpen
+        setOpenMenu, openMenu, isMenuOpen, setCurrPage, currPage,setPageNumber,
+        pageNumber
       }}>
         {children}
       </Context.Provider>
