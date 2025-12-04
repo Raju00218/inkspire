@@ -6,7 +6,7 @@ function PageNav(params) {
     return(
         <>
             <div className="pagination" aria-label="Pagination">
-                <a href={`/articles?page=${currPage - 1}`} className={currPage === 1 ? 'disabled' :"page back"}>Back</a>
+                <a href={`/articles?page=${currPage - 1}`} className={currPage === 1 || 0 ? 'disabled' :"page back"}>Back</a>
                 {[...Array(pageNumber)].map((_, i) => {
                     const activPage = i + 1
                     return(
