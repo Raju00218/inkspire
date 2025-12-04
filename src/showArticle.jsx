@@ -23,7 +23,7 @@ useEffect(()=>{
         setTimeout(() => { 
             setLoading(false), 
             setDetailArticle(result) 
-        },1000);
+        },200);
     } catch (err) {
         console.log(err)
     }
