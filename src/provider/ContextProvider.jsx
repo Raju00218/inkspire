@@ -46,24 +46,26 @@ export default function ContextProvider({children}){
  
   // checking  user user loged or not 
   useEffect(() => {
-    async function fetchUser() {
-      try {
-        const res = await fetch(`${API_BASE}/users/me`, {
-          method: "GET",
-          credentials: "include", // important: sends cookies
-        });
-        if (res.ok) {
-          const data = await res.json();
-          if (data && data.user && data.user.username) {
-            setUserName(data.user.username);
-            setUserId(data.user.id)
-          }
-        }
-      } catch (err) {
-        console.error("Not logged in", err);
-      }
-    }
-    fetchUser();
+ if(username){
+   async function fetchUser() {
+     try {
+       const res = await fetch(`${API_BASE}/users/me`, {
+         method: "GET",
+         credentials: "include", // important: sends cookies
+       });
+       if (res.ok) {
+         const data = await res.json();
+         if (data && data.user && data.user.username) {
+           setUserName(data.user.username);
+           setUserId(data.user.id)
+         }
+       }
+     } catch (err) {
+       console.error("Not logged in", err);
+     }
+   }
+   fetchUser();
+ }
   }, [username]);
     return(
       <Context.Provider value={{
