@@ -1,12 +1,15 @@
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import { Context } from '../provider/ContextProvider'
 function PageNav(params) {
-    const { currPage, pageNumber }  = useContext(Context)
-    
+    const { currPage, pageNumber, setCurrPage }  = useContext(Context)
+    useEffect(()=>{
+        setCurrPage(Number.isNaN(currPage) ? 1 : currPage)
+    },[currPage])
+
     return(
         <>
             <div className="pagination" aria-label="Pagination">
-                <a href={`/articles?page=${currPage - 1}`} className={currPage === 1 || 0 ? 'disabled' :"page back"}>Back</a>
+                {!Number.isNaN(currPage) && <a href={`/articles?page=${currPage - 1}`} className={currPage === 1 || 0 ? 'disabled' : "page back"}>Back</a>}
                 {[...Array(pageNumber)].map((_, i) => {
                     const activPage = i + 1
                     return(
