@@ -64,7 +64,7 @@ export default function ContextProvider({children}){
      }
    }
    fetchUser();
-  }, [username]);
+  }, []);
     return(
       <Context.Provider value={{
         signUp, showSignup, setuplogin, setSignUp,
