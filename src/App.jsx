@@ -17,9 +17,10 @@ function App() {
   const currPage = parseInt(searchParams.get("page")||'1')
   
 const [article, setArticle]=useState([])
+  const [loading, setLoading] = useState(false) // pre load when article fetching
 useEffect(()=>{
   const fetchArticle = async()=>{
-    const [loading, setLoading] = useState(true) // pre load when article fetching
+    setLoading(true)
     try{
       const res = await fetch(`${API_BASE}/articles?page=${currPage}`)
       if(!res.ok){
