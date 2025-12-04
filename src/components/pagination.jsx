@@ -1,5 +1,6 @@
 import { useContext, useEffect } from 'react'
 import { Context } from '../provider/ContextProvider'
+import { Link } from 'react-router-dom'
 function PageNav(params) {
     const { currPage, pageNumber, setCurrPage }  = useContext(Context)
     useEffect(()=>{
@@ -9,17 +10,17 @@ function PageNav(params) {
     return(
         <>
             <div className="pagination" aria-label="Pagination">
-                {!Number.isNaN(currPage) && <a href={`/articles?page=${currPage - 1}`} className={currPage === 1 || 0 ? 'disabled' : "page back"}>Back</a>}
+                {!Number.isNaN(currPage) && <Link to={`/articles?page=${currPage - 1}`} className={currPage === 1 || 0 ? 'disabled' : "page back"}>Back</Link>}
                 {[...Array(pageNumber)].map((_, i) => {
                     const activPage = i + 1
                     return(
-                    < a href = {`/articles?page=${activPage}`} 
+                    <Link to={`/articles?page=${activPage}`} 
                     key = { i } 
                     className = {`page${currPage === activPage ? "active" : ''}`} 
-                    aria-current="page" >{i + 1} </a>
+                    aria-current="page" >{i + 1} </Link>
                     )
                 })}
-                <a href={`/articles?page=${currPage + 1}`} className={currPage === pageNumber ? 'disabled' : "page back" }>Next</a>
+                <Link to={`/articles?page=${currPage + 1}`} className={currPage === pageNumber ? 'disabled' : "page back" }>Next</Link>
             </div>
         </>
     )

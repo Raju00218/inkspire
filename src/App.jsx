@@ -14,7 +14,7 @@ function App() {
   const { setCurrPage, setPageNumber } = useContext(Context)
   // getting search query from url
   const [ searchParams ] = useSearchParams()
-  const currPage = parseInt(searchParams.get("page"))
+  const currPage = parseInt(searchParams.get("page")||'1')
   
 const [article, setArticle]=useState([])
   const [loading, setLoading] = useState(true) // pre load when article fetching
@@ -37,7 +37,7 @@ useEffect(()=>{
     }
   }
   fetchArticle();
-},[])
+},[currPage])
   return (
     <>
     <Nave    />
