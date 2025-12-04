@@ -46,7 +46,6 @@ export default function ContextProvider({children}){
  
   // checking  user user loged or not 
   useEffect(() => {
- if(username){
    async function fetchUser() {
      try {
        const res = await fetch(`${API_BASE}/users/me`, {
@@ -65,7 +64,6 @@ export default function ContextProvider({children}){
      }
    }
    fetchUser();
- }
   }, [username]);
     return(
       <Context.Provider value={{
