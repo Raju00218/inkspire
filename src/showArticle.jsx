@@ -1,10 +1,11 @@
 import Nave from './components/nave'
 import Footer from './components/footer'
 import { useParams } from 'react-router-dom'
-import { useState,useEffect } from 'react'
+import { useState,useEffect, useContext } from 'react'
 import Quill from 'quill'
 import Loader from './components/loder'
 import { Link } from 'react-router-dom'
+import { Context } from './provider/ContextProvider'
 
 const API_BASE =import.meta.env.VITE_API_URL
 
@@ -13,6 +14,7 @@ function ShowArticle(params) {
     const [detailArticle, setDetailArticle]=useState([])
     const [athor,setAthor]=useState('')
        const [loading, setLoading] = useState(false)
+    const { activPage } = useContext(Context)
 useEffect(()=>{
     const fetchData =async()=>{
     setLoading(true)
@@ -70,7 +72,7 @@ useEffect(()=>{
                     </div>
                 </div>
                 {detailArticle?.body ?<div className="back-link-wrapper">
-                    <Link to="article" className="back-link">
+                    <Link to={`/articles?page=${activPage}`}className="back-link">
                         &larr; Back to all articles
                     </Link>
                 </div>: ''}
