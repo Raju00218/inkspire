@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom'
 import { useState,useEffect } from 'react'
 import Quill from 'quill'
 import Loader from './components/loder'
+import { Link } from 'react-router-dom'
 
 const API_BASE =import.meta.env.VITE_API_URL
 
@@ -69,9 +70,9 @@ useEffect(()=>{
                     </div>
                 </div>
                 {detailArticle?.body ?<div className="back-link-wrapper">
-                    <a href="/" className="back-link">
+                    <Link to="article" className="back-link">
                         &larr; Back to all articles
-                    </a>
+                    </Link>
                 </div>: ''}
             </div>:<div className='empty-detailArticle-div'></div>}
             <Footer />
