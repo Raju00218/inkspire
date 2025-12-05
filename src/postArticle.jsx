@@ -19,6 +19,7 @@ Quill.register(Font, true);
 function ArticleEditer() {
 const {userId} = useContext(Context)
  const [loading, setLoading] = useState(false)
+ console.log(userId)
 
   const navigate= useNavigate()
   const [editer, setEditer] = useState(null)
@@ -75,15 +76,17 @@ const {userId} = useContext(Context)
         if (response.error){
           error = response.error
         }
-       if(res.ok){
-         setTimeout(() => {
-          setLoading(false),
-           navigate('/')
-         }, 1000);
-       }
       }catch(err){
         error = err.message
         console.log(error)
+      }finally{
+        if (res.ok) {
+          setTimeout(() => {
+            setLoading(false),
+              navigate('/')
+          }, 1000);
+        }
+
       }
     }
     if(!error){
