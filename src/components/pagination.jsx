@@ -5,6 +5,7 @@ function PageNav(params) {
     const { currPage, pageNumber, setCurrPage, setBackPage }  = useContext(Context)
     useEffect(()=>{
         setCurrPage(Number.isNaN(currPage) ? 1 : currPage)
+        setBackPage(currPage)
     },[currPage])
 
     return(
@@ -13,7 +14,6 @@ function PageNav(params) {
                 {!Number.isNaN(currPage) && <Link to={`/articles?page=${currPage - 1}`} className={currPage === 1 || 0 ? 'disabled' : "page back"}>Back</Link>}
                 {[...Array(pageNumber)].map((_, i) => {
                     const activPage= i + 1
-                    setBackPage(activPage)
                     return(
                     <Link to={`/articles?page=${activPage}`} 
                     key = { i } 
