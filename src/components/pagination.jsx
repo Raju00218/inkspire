@@ -2,7 +2,7 @@ import { useContext, useEffect } from 'react'
 import { Context } from '../provider/ContextProvider'
 import { Link } from 'react-router-dom'
 function PageNav(params) {
-    const { currPage, pageNumber, setCurrPage, activPage, setActivPage }  = useContext(Context)
+    const { currPage, pageNumber, setCurrPage, setBackPage }  = useContext(Context)
     useEffect(()=>{
         setCurrPage(Number.isNaN(currPage) ? 1 : currPage)
     },[currPage])
@@ -12,7 +12,8 @@ function PageNav(params) {
             <div className="pagination" aria-label="Pagination">
                 {!Number.isNaN(currPage) && <Link to={`/articles?page=${currPage - 1}`} className={currPage === 1 || 0 ? 'disabled' : "page back"}>Back</Link>}
                 {[...Array(pageNumber)].map((_, i) => {
-                    setActivPage( i + 1)
+                    const activPage= i + 1
+                    setBackPage(activPage)
                     return(
                     <Link to={`/articles?page=${activPage}`} 
                     key = { i } 

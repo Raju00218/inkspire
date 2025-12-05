@@ -9,7 +9,7 @@ const API_BASE = import.meta.env.VITE_API_URL
 export default function ContextProvider({children}){
   const [currPage, setCurrPage] = useState() // curr page number for next and back
   const [pageNumber, setPageNumber] = useState() //setting navigation pages numbers
-  const [activPage, setActivPage]= useState(null)
+  const [backPage, setBackPage]= useState(null)
 
   // Returns true if viewport width is <= 480px (mobile screens) dynamic css
   const isMobile =useMediaQuery({minWidth:481})
@@ -72,7 +72,7 @@ export default function ContextProvider({children}){
         loginPop, setLoginPop, username, setUserName,userId,
         popupLoading, setPopupLoading, setLogoutLoading, logoutLoading,
         setOpenMenu, openMenu, isMenuOpen, setCurrPage, currPage,setPageNumber,
-        pageNumber, activPage, setActivPage
+        pageNumber, backPage, setBackPage
       }}>
         {children}
       </Context.Provider>

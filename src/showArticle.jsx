@@ -14,7 +14,7 @@ function ShowArticle(params) {
     const [detailArticle, setDetailArticle]=useState([])
     const [athor,setAthor]=useState('')
        const [loading, setLoading] = useState(false)
-    const { activPage } = useContext(Context)
+    const { backPage } = useContext(Context)
 useEffect(()=>{
     const fetchData =async()=>{
     setLoading(true)
@@ -72,7 +72,7 @@ useEffect(()=>{
                     </div>
                 </div>
                 {detailArticle?.body ?<div className="back-link-wrapper">
-                    <Link to={`/articles?page=${activPage}`}className="back-link">
+                    <Link to={`/articles?page=${backPage}`}className="back-link">
                         &larr; Back to all articles
                     </Link>
                 </div>: ''}
