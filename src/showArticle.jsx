@@ -12,7 +12,7 @@ const API_BASE =import.meta.env.VITE_API_URL
 function ShowArticle(params) {
     const {id}= useParams()
     const [detailArticle, setDetailArticle]=useState([])
-    const [athor,setAthor]=useState('')
+    const [athor,setAthor]=useState('"Unknown"')
        const [loading, setLoading] = useState(false)
     const { backPage } = useContext(Context)
 useEffect(()=>{
@@ -22,11 +22,12 @@ useEffect(()=>{
         const res = await fetch(`${API_BASE}/articles/${id}`)
         
         const result = await res.json()
-        setAthor(result.userId.username)
-        setTimeout(() => { 
+           if(result.userId){
+               setAthor(result.userId.username)
+           }
             setLoading(false), 
             setDetailArticle(result) 
-        },200);
+      
     } catch (err) {
         console.log(err)
     }
@@ -63,7 +64,7 @@ useEffect(()=>{
                                 <h2 className="article-title">{detailArticle.title}</h2>
                                 <p className='article-snippet'>{detailArticle.snippet}</p>
                                 <div className="article-meta">
-                                    <span className="author-name">published by {athor}</span>
+                                    <span className="author-name">published by {athor} </span>
                                     <span className="pub-date">Published on {formattedDate} </span>
                                 </div>
                                 <div className='article-body'></div>

@@ -32,10 +32,6 @@ export default function Signup() {
                 setNameErr('')
                 setEmailErr('')
                 setPasswordErr('')
-                setTimeout(() => {
-                    setLoading(false);
-                    setSignUp(false)
-                }, 1000);
             }
             if(reqRes.errors){
               setNameErr( reqRes.errors.username)
@@ -45,6 +41,8 @@ export default function Signup() {
             }
         }catch(error){
             console.log(error)
+        }finally{
+            setLoading(false)
         }
     }
 

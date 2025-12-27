@@ -76,11 +76,7 @@ const {userId} = useContext(Context)
         if (response.error){
           error = response.error
         }
-        // if (res.ok) {
-        //   setTimeout(() => {
         navigate('/');
-        //   }, 1000);
-        // }
       }catch(err){
         error = err.message
         console.log(error)

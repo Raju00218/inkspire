@@ -27,7 +27,6 @@ useEffect(()=>{
         throw new Error('Failed fetch article')
       }
       const data = await res.json()
-      // console.log(data)
       setArticle(data.articles)
       setPageNumber(data.totalPage)
       setCurrPage(currPage)

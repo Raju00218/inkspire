@@ -21,7 +21,7 @@ mongoose.connect(UDIR,)
 app.set('trust proxy', 1);
 app.use(cors({
     origin: "https://inkspirewrite.vercel.app",
-    // origin:"http://localhost:5173",
+    // origin:"http://localhost:5174",
     methods:['GET',"POST","DELETE","PUT"],
     credentials: true
 }));

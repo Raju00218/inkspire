@@ -17,12 +17,9 @@ function nave() {
             })
             const data = await res.json()
             if (res.ok) {
-             setTimeout(()=>{
                  setUserName('');
-                 setLogoutLoading(false) 
-             },500)   
+                 setLogoutLoading(false)  
             }
-
         }catch(err){
             console.log(err)
     
