@@ -14,6 +14,7 @@ export default function ContextProvider({children}){
   // Returns true if viewport width is <= 480px (mobile screens) dynamic css
   const isMobile =useMediaQuery({minWidth:481})
   const [openMenu, setOpenMenu] = useState(false)
+  
   function isMenuOpen() {
     setOpenMenu(isOpenMenu => !isOpenMenu)
   }

@@ -19,7 +19,6 @@ Quill.register(Font, true);
 function ArticleEditer() {
 const {userId} = useContext(Context)
  const [loading, setLoading] = useState(false)
- console.log(userId)
 
   const navigate= useNavigate()
   const [editer, setEditer] = useState(null)
