@@ -40,6 +40,7 @@ export default function Login() {
             if (reqRes.errors) {
                 setEmailErr(reqRes.errors.email)
                 setPasswordErr(reqRes.errors.password)
+                setLoading(false);
             }
         } catch (error) {
             console.log(error)

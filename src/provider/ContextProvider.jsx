@@ -1,5 +1,4 @@
 import { createContext, useContext, useState } from "react";
-import { use } from "react";
 export const Context = createContext(null)
 import { useEffect } from "react";
 import { useMediaQuery } from "react-responsive";
