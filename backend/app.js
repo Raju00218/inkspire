@@ -32,3 +32,7 @@ app.use(express.urlencoded({ extended: true }))
 app.use(morgan('dev'))
 app.use('/articles',articles)
 app.use('/users', users)
+app.get("/health", (req, res) => {
+    res.status(200).send("Server is running ✅");
+});
+

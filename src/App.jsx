@@ -20,6 +20,19 @@ function App() {
 const [article, setArticle]=useState([])
   const [loading, setLoading] = useState(false) // pre load when article fetching
 useEffect(()=>{
+  async function checkServer() {
+    try {
+      const res = await fetch(`${API_BASE}/health`);
+      if (res.ok) {
+        setError(null);
+      }
+    } catch (err) {
+      setError(err.message);
+    }
+  }
+  checkServer();
+},[])
+  useEffect(()=>{
   const fetchArticle = async()=>{
     setLoading(true)
     try{
@@ -32,7 +45,7 @@ useEffect(()=>{
       setPageNumber(data.totalPage)
       setCurrPage(currPage)
     }catch(err){
-      setError(err.message)
+      console.log(err)
     }finally{
       setLoading(false); 
     }
@@ -42,7 +55,7 @@ useEffect(()=>{
   return (
     <>
     <Nave/>
-      {loading && <p className='toaster'>{error ? error : `Our server is waking up...
+      {error && <p className='toaster'>{error ? error : `Our server is waking up...
         Since we’re on the free tier, it may take a minute to start.Thanks for your patience !` } </p>}
      <div className='main-page'>
         {loading ? <Loader /> : <div className='article-container'>
