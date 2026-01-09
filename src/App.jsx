@@ -12,6 +12,7 @@ const API_BASE = import.meta.env.VITE_API_URL
 
 function App() {
   const { setCurrPage, setPageNumber } = useContext(Context)
+  const [error, setError] = useState(null)
   // getting search query from url
   const [ searchParams ] = useSearchParams()
   const currPage = parseInt(searchParams.get("page")||'1')
@@ -31,7 +32,7 @@ useEffect(()=>{
       setPageNumber(data.totalPage)
       setCurrPage(currPage)
     }catch(err){
-      console.log(err)
+      setError(err.message)
     }finally{
       setLoading(false); 
     }
@@ -40,8 +41,9 @@ useEffect(()=>{
 },[currPage])
   return (
     <>
-    <Nave    />
-
+    <Nave/>
+      {loading && <p className='toaster'>{error ? error : `Our server is waking up...
+        Since we’re on the free tier, it may take a minute to start.Thanks for your patience !` } </p>}
      <div className='main-page'>
         {loading ? <Loader /> : <div className='article-container'>
           <h1>articles</h1>

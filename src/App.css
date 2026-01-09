@@ -1,3 +1,23 @@
+.toaster{
+    color: #757171;
+    padding: 10px 20px;
+    white-space: nowrap;
+        overflow: hidden;
+        display: inline-block;
+        animation: scroll-right 10s linear infinite;
+    font-family: 'Poppins', sans-serif;
+   
+}
+
+@keyframes scroll-right {
+    from {
+        transform: translateX(150%);
+    }
+
+    to {
+        transform: translateX(-100%);
+    }
+}
 .pop-up{
     display:flex;
     position: fixed;
@@ -118,7 +138,7 @@ z-index: 999;
             padding: 0px 8px;
         }
     .nav-ul{
-            font-family: 'Poppins';
+                font-family: 'Poppins';
                 position: absolute;
                 top: 65.5px;
                 left: 60%;

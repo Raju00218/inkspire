@@ -3,7 +3,7 @@ import SignUp from './signup'
 import {Context} from '../provider/ContextProvider'
 import { useContext } from "react";
 import Loader from '../components/loder'
-// CSS imports removed
+
 const API_BASE = import.meta.env.VITE_API_URL
 export default function Login() {
         const [emailErr, setEmailErr] = useState()
