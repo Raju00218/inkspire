@@ -139,7 +139,7 @@ const login_get=(req,res)=>{
 }
 const logout_post = (req, res) => {
     res.clearCookie('info',{
-        httpOnly: true, 
+        httpOnly: true,  
  secure: true,     
     sameSite: "none",
         domain: ".inkspire-7yk5.onrender.com",

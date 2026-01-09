@@ -22,12 +22,13 @@ const [article, setArticle]=useState([])
 useEffect(()=>{
   async function checkServer() {
     try {
+      setError(true)
       const res = await fetch(`${API_BASE}/health`);
       if (res.ok) {
         setError(null);
       }
     } catch (err) {
-      setError(err.message);
+     console.log(err)
     }
   }
   checkServer();
@@ -55,8 +56,8 @@ useEffect(()=>{
   return (
     <>
     <Nave/>
-      {error && <p className='toaster'>{error ? error : `Our server is waking up...
-        Since we’re on the free tier, it may take a minute to start.Thanks for your patience !` } </p>}
+      {error && <p className='toaster'>Our server is waking up...
+        Since we’re on the free tier, it may take a minute to start.Thanks for your patience !</p>}
      <div className='main-page'>
         {loading ? <Loader /> : <div className='article-container'>
           <h1>articles</h1>
